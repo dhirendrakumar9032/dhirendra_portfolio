@@ -1,5 +1,11 @@
 import ExperienceSection from "./experience";
-import {  educationEntries, selfDescription } from "../../utils/data";
+import {
+  aboutHighlights,
+  aboutMeta,
+  educationSummary,
+  professionalExperienceEntries,
+  selfDescription,
+} from "../../utils/data";
 import "./index.scss";
 
 const About = () => {
@@ -10,13 +16,43 @@ const About = () => {
         <span className="underline"></span>
       </div>
       <div className="about-main">
-        <div className="about">
-          <div className="about-logo"></div>
-          <div className="about-description">
-            {selfDescription}
+        <div className="about-card">
+          <div className="about-hero">
+            <div className="about-avatar"></div>
+            <div className="about-heading">
+              <h3>Dhirendra Kumar</h3>
+              <p className="about-role">Frontend Software Engineer</p>
+              <div className="about-meta">
+                {aboutMeta.map((item) => (
+                  <span className="about-chip" key={item}>
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+          <p className="about-description">{selfDescription}</p>
+          <div className="about-education">
+            <span className="label">Education</span>
+            <span className="value">{educationSummary}</span>
           </div>
         </div>
-        <ExperienceSection entries={educationEntries} />
+        <div className="about-details">
+          <ExperienceSection
+            title="Professional Experience"
+            entries={professionalExperienceEntries}
+          />
+          <div className="about-highlights-panel">
+            <h3 className="about-subtitle">Highlights</h3>
+            <div className="about-highlights">
+              {aboutHighlights.map((item) => (
+                <div className="about-highlight" key={item}>
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>

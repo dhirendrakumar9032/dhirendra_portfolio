@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { skills } from "../../utils/data";
+import { skills, skillTags } from "../../utils/data";
 import "./index.scss";
 
 
@@ -37,6 +37,13 @@ const Skills = () => {
               <div className="skill-name">{skill.name}</div>
             </motion.div>
           </div>
+        ))}
+      </div>
+      <div className="skill-tags">
+        {skillTags.map((tag) => (
+          <span className="skill-tag" key={tag}>
+            {tag}
+          </span>
         ))}
       </div>
     </div>

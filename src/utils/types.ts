@@ -3,8 +3,8 @@ import { IconType } from "react-icons";
 export interface ExperienceEntry {
     role: string;
     company: string;
-    period: string;
-    responsibilities: string[];
+    period?: string;
+    responsibilities?: string[];
   }
 
   export interface BlogCardProps {

@@ -28,17 +28,13 @@ const Home = () => {
           <span className="separate-color"> Dhirendra Kumar </span>
         </div>
         <div className="hero-title">
-          Front-End <span className="separate-color">Developer</span>
+          Frontend <span className="separate-color">Software Engineer</span>
         </div>
         <div className="hero-subtitle">
-          I am dedicated to developing the{" "}
-          <span className="separate-color">
-            digital face of technologically robust products,
-          </span>{" "}
-          crafting front-end platforms that not only foster
-          <span className="separate-color">
-            social innovation but also prioritize sustainability.
-          </span>
+          4+ years building scalable, high-performance web applications with{" "}
+          <span className="separate-color">React and TypeScript.</span> Focused
+          on enterprise products, performance optimization, and reusable UI
+          architecture.
         </div>
         <div className="social-media-link">
           {socialMediaLinks.map(({ link, logo }, index) => (
@@ -63,7 +59,7 @@ const Home = () => {
           </div>
           <div className="email">
             <VscCallOutgoing />
-            +91, 8604390422
+            +91 8604390422
           </div>
           <div className="download-btn">
             <Link to="contact" smooth={true} duration={500}>

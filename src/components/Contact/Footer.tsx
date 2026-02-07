@@ -10,15 +10,18 @@ import IconWrapper from "../../utils/IconWrapper";
 type Props = {};
 
 const Footer = (props: Props) => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="footer">
       <div className="footer-content">
         <div>
           <p className="address">
-            <IoLocationOutline /> Kondapur,Hyderabad, Telanagan.
+            <IoLocationOutline /> Lucknow, Uttar Pradesh, India | Hyderabad,
+            Telangana
           </p>
           <p className="phone">
-            <VscCallOutgoing /> (+91) 8604390422
+            <VscCallOutgoing /> +91 8604390422
           </p>
           <p className="email">
             <TfiEmail /> dhirendra9032@gmail.com
@@ -43,7 +46,7 @@ const Footer = (props: Props) => {
         </div>
       </div>
       <div className="footer-rights">
-        <p>© 2023 by Dhirendra Kumar. All rights reserved.</p>
+        <p>© {currentYear} by Dhirendra Kumar. All rights reserved.</p>
       </div>
     </footer>
   );
