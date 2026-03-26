@@ -2,7 +2,7 @@ import { Button, Image, message } from "antd";
 import { motion } from "framer-motion";
 import { VscCallOutgoing } from "react-icons/vsc";
 import { TfiEmail } from "react-icons/tfi";
-import { socialMediaLinks } from "../../utils/data";
+import { heroImpactStats, seniorSignals, socialMediaLinks } from "../../utils/data";
 import IconWrapper from "../../utils/IconWrapper";
 import heroLogo from "../../resources/icons/front-icon.svg";
 import resume from '../../resources/dhirendra_kumar_resume.pdf'
@@ -24,17 +24,31 @@ const Home = () => {
     <div className="hero-container" id="home">
       <section className="hero">
         <div className="hero-greeting">
-          <span className="wave">👋</span> Hi ! I am
-          <span className="separate-color"> Dhirendra Kumar </span>
+          <span className="wave">👋</span> Hello, I am
         </div>
+        <div className="hero-name separate-color">Dhirendra Kumar</div>
         <div className="hero-title">
-          Frontend <span className="separate-color">Software Engineer</span>
+          Senior <span className="separate-color">Frontend Developer</span>
         </div>
         <div className="hero-subtitle">
-          4+ years building scalable, high-performance web applications with{" "}
-          <span className="separate-color">React and TypeScript.</span> Focused
-          on enterprise products, performance optimization, and reusable UI
-          architecture.
+          I build scalable React and TypeScript products for fintech and
+          enterprise SaaS, with strong ownership in architecture, reusable UI
+          systems, performance optimization, and cross-functional delivery.
+        </div>
+        <div className="hero-senior-signals">
+          {seniorSignals.map((signal) => (
+            <span className="signal-chip" key={signal}>
+              {signal}
+            </span>
+          ))}
+        </div>
+        <div className="hero-impact-grid">
+          {heroImpactStats.map((item) => (
+            <div className="impact-card" key={item.label}>
+              <span className="impact-value">{item.value}</span>
+              <span className="impact-label">{item.label}</span>
+            </div>
+          ))}
         </div>
         <div className="social-media-link">
           {socialMediaLinks.map(({ link, logo }, index) => (
@@ -64,7 +78,7 @@ const Home = () => {
           <div className="download-btn">
             <Link to="contact" smooth={true} duration={500}>
               <Button type="primary">
-                Hire me
+                Let's Talk
               </Button>
             </Link>
             <Button type="primary" onClick={handleDownload}>

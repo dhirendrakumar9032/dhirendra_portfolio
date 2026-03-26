@@ -64,8 +64,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 5%;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
+  gap: 30px;
 
   .separate-color {
     color: $purple-color;
@@ -75,12 +76,16 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    max-width: 760px;
 
     animation: slideFromLeft 1s ease-out forwards;
 
     .hero-greeting {
-      font-size: 3.5rem;
-      font-weight: bold;
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.9;
 
       .wave {
         animation-name: waveAnimation;
@@ -91,17 +96,71 @@
       }
     }
 
+    .hero-name {
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.08;
+      margin-top: -4px;
+    }
+
     .hero-title {
-      font-size: 3rem;
+      font-size: clamp(1.8rem, 3.8vw, 2.8rem);
       font-weight: 700;
+      line-height: 1.15;
     }
 
     .hero-subtitle {
-      font-size: 16px;
+      font-size: 1.02rem;
       font-weight: 400;
-      line-height: 20px;
-      letter-spacing: 1px;
-      max-width: 600px;
+      line-height: 1.65;
+      letter-spacing: 0.2px;
+      max-width: 700px;
+    }
+
+    .hero-senior-signals {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      .signal-chip {
+        padding: 7px 13px;
+        border-radius: 999px;
+        font-size: 0.84rem;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+        background: rgba(109, 102, 254, 0.12);
+        border: 1px solid rgba(109, 102, 254, 0.35);
+      }
+    }
+
+    .hero-impact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(150px, 1fr));
+      gap: 12px;
+      width: 100%;
+      max-width: 700px;
+
+      .impact-card {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 14px;
+        border-radius: 12px;
+        border: 1px solid rgba(0, 0, 0, 0.09);
+        background: rgba(255, 255, 255, 0.65);
+        box-shadow: 0 12px 26px rgba(15, 23, 42, 0.08);
+      }
+
+      .impact-value {
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+
+      .impact-label {
+        font-size: 0.82rem;
+        opacity: 0.8;
+        line-height: 1.3;
+      }
     }
 
     .ant-btn {
@@ -152,6 +211,7 @@
       .download-btn {
         display: flex;
         gap: 15px;
+        flex-wrap: wrap;
       }
 
       button {
@@ -167,7 +227,7 @@
         font-weight: 600;
         cursor: pointer;
         outline: none;
-        width: 120px;
+        min-width: 132px;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
         transition: all 0.2s ease-in-out;
       }
@@ -192,10 +252,14 @@
   }
 
   @media (max-width: 992px) {
-    .hero-greeting,
-    .hero-title,
-    .hero-subtitle {
-      font-size: smaller;
+    .hero {
+      .hero-impact-grid {
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+      }
+
+      .hero-senior-signals {
+        gap: 8px;
+      }
     }
   }
 
@@ -203,25 +267,31 @@
     padding-top: 80px;
     padding-bottom: 40px;
     gap: 20px;
-    height: auto;
+    min-height: auto;
+    flex-direction: column-reverse;
 
     .hero {
-      padding: 0 ;
+      padding: 0;
+
       .hero-greeting {
-        font-size: 2.5rem;
+        font-size: 1rem;
       }
 
       .hero-title {
-        font-size: 2rem;
+        font-size: 1.7rem;
       }
 
       .hero-subtitle {
-        font-size: 1rem;
+        font-size: 0.95rem;
+      }
+
+      .hero-impact-grid {
+        grid-template-columns: 1fr;
       }
     }
 
     .hero-image-container {
-      width: 100%;
+      width: min(360px, 90vw);
       height: auto;
     }
 
@@ -236,20 +306,43 @@
   }
 
   @media (max-width: 576px) {
-    .hero-greeting {
-      font-size: 2rem;
-    }
+    .hero {
+      .hero-name {
+        font-size: 2rem;
+      }
 
-    .hero-title {
-      font-size: 1.75rem;
-    }
+      .hero-title {
+        font-size: 1.5rem;
+      }
 
-    .hero-subtitle {
-      font-size: 0.875rem;
+      .hero-subtitle {
+        font-size: 0.875rem;
+      }
     }
 
     .hero-image-container {
       display: none;
+    }
+  }
+}
+
+.dark-mode {
+  .hero-container {
+    .hero {
+      .hero-senior-signals {
+        .signal-chip {
+          background: rgba(109, 102, 254, 0.2);
+          border-color: rgba(109, 102, 254, 0.45);
+        }
+      }
+
+      .hero-impact-grid {
+        .impact-card {
+          background: rgba(17, 24, 39, 0.72);
+          border-color: rgba(255, 255, 255, 0.1);
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
+        }
+      }
     }
   }
 }

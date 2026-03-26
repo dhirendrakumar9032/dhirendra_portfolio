@@ -25,11 +25,12 @@ export const professionalExperienceEntries: ExperienceEntry[] = [
     company: "JLL Technologies (Chick-fil-A RELM Project)",
     period: "Mar 2025 - Present",
     responsibilities: [
-      "Led the frontend architecture setup for an enterprise internal platform using React 19, TypeScript, Vite, MUI, and Redux Toolkit for scalability and faster development.",
+      "Designed and implemented frontend architecture for an enterprise platform, standardizing project structure, state management, and UI patterns for scalable delivery.",
       "Built and optimized data-intensive dashboards with AG-Grid, improving rendering performance, navigation flow, and usability by 80%.",
-      "Integrated Doughnut and Bar charts with React-Google-Charts and implemented FullCalendar for task and event tracking, improving operational visibility by 20%.",
-      "Applied performance optimizations like lazy loading, code splitting, and virtual scrolling, improving load times and bundle efficiency by 10%.",
-      "Collaborated with product, design, and backend teams in Agile delivery to ship stable, production-ready features.",
+      "Integrated Doughnut and Bar charts with React-Google-Charts and implemented FullCalendar for task/event tracking, improving workflow visibility by 20%.",
+      "Applied advanced optimizations including lazy loading, code splitting, and virtual scrolling, reducing bundle weight and improving load speed by 10%.",
+      "Owned approximately 60-70% of frontend development with reusable component patterns and maintainable architecture.",
+      "Led code reviews, enforced frontend standards, and mentored junior engineers to improve code quality and consistency.",
     ],
   },
   {
@@ -41,8 +42,10 @@ export const professionalExperienceEntries: ExperienceEntry[] = [
       "Architected AG-Grid workflows for complex cap-table systems, improving scalability and cross-team UI reuse by 40%.",
       "Migrated legacy charts to a D3.js-based visualization framework, improving analytical clarity and interaction depth by 30%.",
       "Built a Storybook-driven reusable component library, reducing UI development time by 40% and improving design consistency.",
-      "Improved application performance by 10% through profiling, optimization, and efficient state management.",
-      "Applied SOLID principles and modular design, reducing long-term technical debt by 5%.",
+      "Optimized frontend performance by 10% through profiling, memoization, code splitting, and efficient state management.",
+      "Introduced React Query for server-state caching and data synchronization, reducing unnecessary API calls by 5%.",
+      "Refactored legacy modules by removing dead code and improving component modularity, reducing technical debt by 20%.",
+      "Served as frontend SPOC for critical workflows, collaborating with product/backend on UI architecture, API contracts, and delivery planning.",
     ],
   },
 ];
@@ -86,24 +89,39 @@ export const blogData = [
 ];
 
 export const selfDescription: string =
-  "Frontend Software Engineer with 4+ years of experience building scalable, high-performance web applications using React, TypeScript, and modern frontend ecosystems. I specialize in enterprise product development, frontend performance optimization, and reusable UI architecture across fintech and enterprise platforms. I won 2nd place in an internal hackathon for building the Sharthi AI-powered chatbot using React and LLMs. Currently based in Lucknow, India.";
+  "Senior Frontend-focused Engineer with 4+ years of experience building scalable React and TypeScript applications for fintech and enterprise SaaS. I specialize in component architecture, data-intensive UI systems, performance optimization, and frontend platform standards. I regularly lead complex feature delivery end-to-end, drive code quality through reviews and mentoring, and translate product requirements into maintainable, production-ready interfaces.";
 
 export const aboutMeta: string[] = [
   "Lucknow, Uttar Pradesh, India",
-  "Hyderabad, Telangana",
-  "Open to opportunities in Australia",
+  "4+ Years in Frontend Engineering",
+  "Open to Senior Frontend Opportunities",
 ];
 
 export const aboutHighlights: string[] = [
-  "4+ years building enterprise and fintech platforms",
-  "Performance optimization with measurable impact",
-  "Reusable UI architecture with Storybook libraries",
-  "Data visualization: AG-Grid, D3.js, React-Google-Charts",
-  "2nd place in internal hackathon for the Sharthi AI chatbot",
+  "Architected enterprise frontend foundations for scalable team delivery",
+  "Contributed 60-70% of frontend development on current enterprise project",
+  "Improved dashboard usability/performance by 80% with AG-Grid optimization",
+  "Enabled 80% legacy client migration through strategic product feature delivery",
+  "Built reusable Storybook libraries to accelerate UI development by 40%",
+  "Led code reviews and mentored juniors to raise engineering standards",
+  "2nd place in internal hackathon for Sharthi AI chatbot (React + LLMs)",
 ];
 
 export const educationSummary =
-  "B.Tech in Computer Science — Dr. APJ Abdul Kalam Technical University";
+  "B.Tech in Computer Science — Dr. APJ Abdul Kalam Technical University (2013-2017)";
+
+export const heroImpactStats: { value: string; label: string }[] = [
+  { value: "4+ Years", label: "Frontend Experience" },
+  { value: "80%", label: "Dashboard UX/Performance Gain" },
+  { value: "60-70%", label: "Frontend Ownership in Current Project" },
+];
+
+export const seniorSignals: string[] = [
+  "React + TypeScript Architecture",
+  "Frontend Platform Ownership",
+  "Mentorship and Code Reviews",
+  "Enterprise SaaS and Fintech Delivery",
+];
 
 export const socialMediaLinks: socialMediaLinksType[] = [
   {
@@ -149,11 +167,13 @@ export const skillTags: string[] = [
   "D3.js",
   "Chart.js",
   "React-Google-Charts",
+  "React Query",
   "Material UI",
   "REST APIs",
   "Node.js (basic)",
   "React Testing Library",
   "Jest",
+  "Vitest",
   "Vite",
   "Webpack",
   "Parcel",

@@ -24,16 +24,18 @@
   }
 
   .name {
-    gap: 8px;
-    color: #d35400;
-    font-family: "Dancing Script";
+    gap: 10px;
+    color: inherit;
+    font-family: "Manrope", sans-serif;
     font-weight: 700;
-    font-size: 38px;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 
     .logo {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
     }
   }
 
@@ -42,8 +44,8 @@
 
     img {
       width: 30px;
-      cursor: pointer;transition: background-color 0.9s ease;
-
+      cursor: pointer;
+      transition: background-color 0.9s ease;
     }
   }
 
@@ -57,16 +59,12 @@
     padding: 5px 20px;
     
     .name {
-      font-size: 28px; // Smaller font size for smaller screens
+      font-size: 0.72rem;
 
       .logo {
-        width: 45px; // Smaller logo size for smaller screens
-        height: 45px;
+        width: 38px;
+        height: 38px;
       }
     }
-
-    // .left-nav-container, .anticon {
-    //   display: none; // Hide on smaller screens, assuming you'll use a hamburger menu
-    // }
   }
 }

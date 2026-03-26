@@ -21,7 +21,7 @@ const About = () => {
             <div className="about-avatar"></div>
             <div className="about-heading">
               <h3>Dhirendra Kumar</h3>
-              <p className="about-role">Frontend Software Engineer</p>
+              <p className="about-role">Senior Frontend Developer</p>
               <div className="about-meta">
                 {aboutMeta.map((item) => (
                   <span className="about-chip" key={item}>
