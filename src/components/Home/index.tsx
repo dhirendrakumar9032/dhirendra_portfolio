@@ -5,7 +5,6 @@ import { TfiEmail } from "react-icons/tfi";
 import { heroImpactStats, seniorSignals, socialMediaLinks } from "../../utils/data";
 import IconWrapper from "../../utils/IconWrapper";
 import heroLogo from "../../resources/icons/front-icon.svg";
-import resume from '../../resources/dhirendra_kumar_resume.pdf'
 import "./index.scss";
 import { IoMdDownload } from "react-icons/io";
 
@@ -19,7 +18,7 @@ const prioritySocialLinks = socialMediaLinks.slice(0, 2).map((item, index) => ({
 const Home = () => {
   const handleDownload = () => {
     const link = document.createElement('a');
-    link.href = resume;
+    link.href = '/dhirendra-kumar-resume.pdf';
     link.download = 'dhirendra-kumar-resume.pdf';
     link.click();
     message.success('Resume Downloaded Successfully!', 3)
