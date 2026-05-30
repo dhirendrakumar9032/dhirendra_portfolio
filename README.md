@@ -3,7 +3,7 @@
 
 Welcome to the repository for my personal portfolio website. This portfolio showcases my skills as a Frontend Engineer, featuring a range of projects, blogs, and technical skills. It's built with a modern design and includes engaging animations to make the user experience interactive and enjoyable. here are image:-
 
-![Screenshot from 2023-12-31 00-06-47](https://github.com/dhirendrakumar9032/dhirendra_portfolio/assets/128227632/d124dfcd-4d2e-4951-9f0b-b20a27c93eda)
+<img width="1470" height="792" alt="image" src="https://github.com/user-attachments/assets/bbd679ef-b07a-405c-a0f4-49a3054c3ddb" />
 
 ## Features
 
