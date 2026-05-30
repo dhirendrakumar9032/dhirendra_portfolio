@@ -3,7 +3,7 @@
 // Keyframes for the floating animation
 @keyframes floatUpFromBottom {
   0% {
-    transform: translateY(50px); // Start below the viewable area
+    transform: translateY(24px);
     opacity: 0;
   }
   100% {
@@ -12,23 +12,20 @@
   }
 }
 
-// Container for centering the navigation bar
 .navigation-container {
-  position: fixed; // Fixed position
-  right: 10px;
-  top: 300px;
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
-  justify-content: center; // Center horizontally
-  animation: floatUpFromBottom 0.5s ease-out; // Apply the animation
-  border-radius: 50px;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0) 100%
-  ); // Fully transparent background
-  backdrop-filter: blur(10px); // Blur effect applied to content underneath
-  box-shadow: rgb(255, 255, 255) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  justify-content: center;
+  z-index: 999;
+  animation: floatUpFromBottom 0.35s ease-out;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(109, 102, 254, 0.14);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 24px 54px rgba(15, 23, 42, 0.14);
 }
 
 .navigation-bar {
@@ -36,49 +33,117 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px;
-  gap: 15px;
+  padding: 8px;
+  gap: 8px;
   width: fit-content;
-  border-radius: 50px;
+  border-radius: inherit;
 }
 
 .nav-item {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  width: 40px;
-  height: 40px;
-  font-size: 24px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
   color: $purple-color;
+  text-decoration: none;
+  transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease,
+    box-shadow 0.2s ease;
 
-  &:hover {
-    background-image: linear-gradient(to right, $purple-color, #007bff);
-    border-radius: 60px;
+  svg {
+    width: 21px;
+    height: 21px;
+    stroke-width: 2.2;
+  }
+
+  &:hover,
+  &.active {
     color: white;
+    background-image: linear-gradient(135deg, $purple-color, #007bff);
+    box-shadow: 0 12px 28px rgba(109, 102, 254, 0.28);
+    transform: translateY(-2px);
   }
 
-  .anticon {
-    font-size: 20px;
-    color: #000000;
+  &:hover .nav-tooltip {
+    opacity: 1;
+    transform: translate(-8px, -50%);
+    pointer-events: auto;
   }
 
-  &.selected {
-    background-image: linear-gradient(to right, $purple-color, #007bff);
-    border-radius: 60px;
-    .anticon {
-      color: #1890ff;
-    }
-  }
-}
-
-// Additional responsive styling if needed
-@media (max-width: 480px) {
-  .navigation-bar {
-    padding: 10px 5px; // Reduce padding on smaller screens
+  .nav-tooltip {
+    position: absolute;
+    right: calc(100% + 10px);
+    top: 50%;
+    padding: 6px 9px;
+    border-radius: 8px;
+    color: #111827;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.12);
+    font-size: 0.78rem;
+    font-weight: 800;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(0, -50%);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
   }
 }
 
 .navigation-container-hide {
-  display: none; // Or 'flex' if it was a flex container
+  display: none;
+}
+
+.dark-mode {
+  .navigation-container {
+    background: rgba(17, 24, 39, 0.74);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 28px 64px rgba(0, 0, 0, 0.34);
+  }
+
+  .nav-item {
+    .nav-tooltip {
+      color: #f8fafc;
+      background: rgba(17, 24, 39, 0.94);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navigation-container {
+    right: 16px;
+  }
+
+  .nav-item {
+    width: 38px;
+    height: 38px;
+
+    svg {
+      width: 19px;
+      height: 19px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .navigation-container {
+    right: 50%;
+    top: auto;
+    bottom: 18px;
+    transform: translateX(50%);
+    border-radius: 999px;
+  }
+
+  .navigation-bar {
+    flex-direction: row;
+    padding: 7px;
+  }
+
+  .nav-item .nav-tooltip {
+    display: none;
+  }
 }

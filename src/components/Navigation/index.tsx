@@ -1,69 +1,45 @@
 import { useContext } from "react";
 import { Link } from "react-scroll";
-import { FaHome } from "react-icons/fa";
 import { NavigationContext } from "../../App";
 import "./index.scss";
-import { NaveItems } from "../../utils/types";
-import { BriefcaseBusiness, CircleUserRound, Contact, LampDesk, NotebookPen } from "lucide-react";
+import { BriefcaseBusiness, CircleUserRound, Home, Mail, Sparkles } from "lucide-react";
+
+type NavItem = {
+  id: string;
+  label: string;
+  icon: JSX.Element;
+};
 
 const Navigation = () => {
   const { isNavVisible } = useContext(NavigationContext);
 
-  const navItems:NaveItems[] = [
+  const navItems: NavItem[] = [
     {
       id: "home",
-      icon: (
-        <Link to="home" smooth={true} duration={500}>
-          <FaHome />
-        </Link>
-      ),
+      label: "Home",
+      icon: <Home />,
     },
     {
       id: "about",
-      icon: (
-        <Link to="about" smooth={true} duration={500}>
-          <CircleUserRound />
-        </Link>
-      ),
+      label: "About",
+      icon: <CircleUserRound />,
     },
     {
       id: "skills",
-      icon: (
-        <Link to="skills" smooth={true} duration={500}>
-           <LampDesk />
-        </Link>
-      ),
+      label: "Skills",
+      icon: <Sparkles />,
     },
     {
       id: "projects",
-      icon: (
-        <Link to="projects" smooth={true} duration={500}>
-           <BriefcaseBusiness />
-        </Link>
-      ),
-    },
-    {
-      id: "blogs",
-      icon: (
-        <Link to="blogs" smooth={true} duration={500}>
-           <NotebookPen />
-        </Link>
-      ),
+      label: "Projects",
+      icon: <BriefcaseBusiness />,
     },
     {
       id: "contact",
-      icon: (
-        <Link to="contact" smooth={true} duration={500}>
-          <Contact />
-        </Link>
-      ),
+      label: "Contact",
+      icon: <Mail />,
     },
   ];
-
-  const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    section?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
 
   return (
     <div
@@ -73,13 +49,18 @@ const Navigation = () => {
     >
       <div className="navigation-bar">
         {navItems.map((item) => (
-          <div
+          <Link
             key={item.id}
             className="nav-item"
-            onClick={() => scrollToSection(item.id)}
+            to={item.id}
+            smooth={true}
+            duration={500}
+            title={item.label}
+            aria-label={`Go to ${item.label}`}
           >
             {item.icon}
-          </div>
+            <span className="nav-tooltip">{item.label}</span>
+          </Link>
         ))}
       </div>
     </div>

@@ -7,6 +7,7 @@
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .dark-mode {
@@ -20,6 +21,7 @@
 
 body{
   font-family: "Manrope", sans-serif;
+  overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -38,6 +40,8 @@ outline: 1px solid slategrey;
 .app{
   display: flex;
   flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
   transition: background-color 1.9s ease;
 
   

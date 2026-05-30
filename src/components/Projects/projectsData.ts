@@ -10,6 +10,27 @@ export interface ProjectType {
 
 export const projects: ProjectType[] = [
   {
+    title: "StackLivo",
+    description:
+      "A browser-based React and JavaScript playground for building, practicing, and previewing frontend code directly in the browser. It combines a Monaco-powered editor, Sandpack React preview, JavaScript terminal output, practice questions, local project management, package search, and responsive editor panels in one focused workspace.",
+    technology: [
+      "React 18",
+      "TypeScript",
+      "Vite",
+      "Monaco Editor",
+      "Sandpack",
+      "xterm.js",
+      "Sass",
+      "Vercel Functions",
+    ],
+    id: 7,
+    projectImgLinks: [
+      "https://github.com/user-attachments/assets/9908c417-1421-47d2-b873-4df5acb64937",
+    ],
+    liveDemoUrl: "https://stack-livo.vercel.app/",
+    githubUrl: "https://github.com/dhirendrakumar9032/StackLivo",
+  },
+  {
     title: "Movie Verse",
     description:
       "A production-style movie discovery platform built with a scalable frontend architecture. Includes reusable hooks, typed API workflows, and responsive UI patterns focused on performance and maintainability.",
@@ -24,7 +45,6 @@ export const projects: ProjectType[] = [
     id: 6,
     projectImgLinks: [
       "https://github.com/user-attachments/assets/a4e5a114-be7f-49a2-bae1-b91d4f04faf0",
-      "https://github.com/user-attachments/assets/ccf12d84-6c1b-44b9-a610-f5a06fec8316",
     ],
     liveDemoUrl:'https://movie-verse-tan.vercel.app/',
     githubUrl: "https://github.com/dhirendrakumar9032/MovieVerse",
@@ -37,7 +57,6 @@ export const projects: ProjectType[] = [
     id: 4,
     projectImgLinks: [
       "https://github.com/user-attachments/assets/864b0064-83ed-46c7-9170-02142e8b68d5",
-      "https://github.com/user-attachments/assets/daab0db3-58e1-4d91-962e-b18620499267",
     ],
     githubUrl: "https://github.com/dhirendrakumar9032/Zomato_Clone",
   },
@@ -53,32 +72,12 @@ export const projects: ProjectType[] = [
     ],
     id: 5,
     projectImgLinks: [
-      "https://github.com/user-attachments/assets/c003cb80-02e1-4550-80ab-449281d57a09",
-      "https://github.com/user-attachments/assets/62140916-52e9-4687-ba5b-78cc0ca423cd",
+      "https://github.com/user-attachments/assets/bbd679ef-b07a-405c-a0f4-49a3054c3ddb",
     ],
     liveDemoUrl:'https://job-application-mail-generator.vercel.app/',
     githubUrl: "https://github.com/dhirendrakumar9032/job_application_mail_generator",
   },
 
-  {
-    title: "Admin UI GeekTrust Challenge",
-    description:
-      "A data-heavy admin management interface with advanced table interactions including search, inline edits, deletion, pagination, and clean state updates across large datasets.",
-    technology: [
-      "React",
-      "TypeScript",
-      "SCSS",
-      "Zustand",
-      "React Query",
-    ],
-    id: 1,
-    projectImgLinks: [
-      "https://i.imgur.com/dbv6Ifw.png",
-      "https://imgur.com/dbv6Ifw.png",
-    ],
-    liveDemoUrl: "https://admin-ui-geektrust-project-june-2024.vercel.app/",
-    githubUrl: "https://github.com/dhirendrakumar9032/admin-ui-geektrust-project-june-2024.git",
-  },
   {
     title: "Portfolio",
     description:
@@ -93,8 +92,7 @@ export const projects: ProjectType[] = [
     ],
     id: 2,
     projectImgLinks: [
-      "https://i.imgur.com/qMP0ckA.png",
-      "https://i.imgur.com/FH62HtN.png",
+      "https://opengraph.githubassets.com/portfolio/dhirendrakumar9032/dhirendra_portfolio",
     ],
     liveDemoUrl: "https://dhirendra-portfolio.vercel.app/",
     githubUrl: "https://github.com/dhirendrakumar9032/dhirendra_portfolio",

@@ -22,15 +22,16 @@ import postman from "../resources/skills-icons/postman.png";
 export const professionalExperienceEntries: ExperienceEntry[] = [
   {
     role: "Frontend Developer II",
-    company: "JLL Technologies (Chick-fil-A RELM Project)",
+    company: "JLL Technologies",
     period: "Mar 2025 - Present",
     responsibilities: [
-      "Designed and implemented frontend architecture for an enterprise platform, standardizing project structure, state management, and UI patterns for scalable delivery.",
-      "Built and optimized data-intensive dashboards with AG-Grid, improving rendering performance, navigation flow, and usability by 80%.",
-      "Integrated Doughnut and Bar charts with React-Google-Charts and implemented FullCalendar for task/event tracking, improving workflow visibility by 20%.",
-      "Applied advanced optimizations including lazy loading, code splitting, and virtual scrolling, reducing bundle weight and improving load speed by 10%.",
-      "Owned approximately 60-70% of frontend development with reusable component patterns and maintainable architecture.",
-      "Led code reviews, enforced frontend standards, and mentored junior engineers to improve code quality and consistency.",
+      "Architected the RELM real estate management platform from scratch using React.js and Redux Toolkit for Chick-fil-A's live enterprise workflow.",
+      "Engineered AG Grid dashboards with virtualization, filtering, pagination, and search for large datasets, improving table responsiveness by 30%.",
+      "Accelerated page performance by 35% through lazy loading, memoization, bundle optimization, and Core Web Vitals improvements.",
+      "Connected 20+ REST API workflows with reusable service layers, loading states, error handling, and scalable async data contracts.",
+      "Created 15+ reusable UI components for forms, tables, charts, and calendars, reducing duplicate UI work across feature modules.",
+      "Launched charting and calendar workflows using React-Google-Charts and FullCalendar, improving task and event visibility by 20%.",
+      "Reviewed pull requests, resolved production UI issues, and contributed to sprint planning across a 6+ member Agile team.",
     ],
   },
   {
@@ -38,14 +39,14 @@ export const professionalExperienceEntries: ExperienceEntry[] = [
     company: "Qapita Fintech India Pvt. Ltd. (QapMap Project)",
     period: "Jan 2022 - Mar 2025",
     responsibilities: [
-      "Designed and launched the Pool feature, enabling 80% client migration from a legacy platform and driving product adoption.",
-      "Architected AG-Grid workflows for complex cap-table systems, improving scalability and cross-team UI reuse by 40%.",
-      "Migrated legacy charts to a D3.js-based visualization framework, improving analytical clarity and interaction depth by 30%.",
-      "Built a Storybook-driven reusable component library, reducing UI development time by 40% and improving design consistency.",
-      "Optimized frontend performance by 10% through profiling, memoization, code splitting, and efficient state management.",
+      "Delivered 10+ major frontend features for Qapita's Qapmap B2B SaaS platform, supporting ESOP and CapTable workflows for global enterprise customers.",
+      "Engineered AG Grid dashboards with virtualization and rendering controls, increasing large-dataset performance by 40%.",
+      "Spearheaded a Storybook component library with 40+ shared components, reducing repeated UI development effort by 40%.",
+      "Strengthened frontend performance using React Profiler, memoization, Redux Toolkit improvements, and code splitting, improving page interactions by 10%.",
       "Introduced React Query for server-state caching and data synchronization, reducing unnecessary API calls by 5%.",
-      "Refactored legacy modules by removing dead code and improving component modularity, reducing technical debt by 20%.",
-      "Served as frontend SPOC for critical workflows, collaborating with product/backend on UI architecture, API contracts, and delivery planning.",
+      "Validated critical flows with Vitest and React Testing Library, increasing test coverage and reducing regression defects by 30%.",
+      "Modernized legacy modules into smaller reusable components, reducing frontend technical debt by 20% and improving maintainability.",
+      "Partnered with product managers, designers, and backend engineers across 2-week sprints to deliver scalable SaaS features on time.",
     ],
   },
 ];
@@ -89,43 +90,43 @@ export const blogData = [
 ];
 
 export const selfDescription: string =
-  "Senior Frontend-focused Engineer with 4+ years of experience building scalable React and TypeScript applications for fintech and enterprise SaaS. I specialize in component architecture, data-intensive UI systems, performance optimization, and frontend platform standards. I regularly lead complex feature delivery end-to-end, drive code quality through reviews and mentoring, and translate product requirements into maintainable, production-ready interfaces.";
+  "Frontend Engineer with 4+ years of experience developing scalable SaaS web applications using React.js, TypeScript, JavaScript, Redux Toolkit, and Next.js. I specialize in frontend architecture, reusable component libraries, AG Grid dashboards, REST API integrations, responsive UI development, Core Web Vitals improvement, accessibility, cross-browser compatibility, performance, maintainability, and Agile collaboration.";
 
 export const aboutMeta: string[] = [
-  "Lucknow, Uttar Pradesh, India",
+  "Lucknow, India",
   "4+ Years in Frontend Engineering",
   "Open to Senior Frontend Opportunities",
 ];
 
 export const aboutHighlights: string[] = [
-  "Architected enterprise frontend foundations for scalable team delivery",
-  "Contributed 60-70% of frontend development on current enterprise project",
-  "Improved dashboard usability/performance by 80% with AG-Grid optimization",
-  "Enabled 80% legacy client migration through strategic product feature delivery",
-  "Built reusable Storybook libraries to accelerate UI development by 40%",
-  "Led code reviews and mentored juniors to raise engineering standards",
-  "2nd place in internal hackathon for Sharthi AI chatbot (React + LLMs)",
+  "Architected RELM from scratch for a live Chick-fil-A enterprise workflow",
+  "Improved AG Grid table responsiveness by 30% with virtualization and optimized controls",
+  "Improved page performance by 35% through lazy loading, memoization, and Core Web Vitals work",
+  "Connected 20+ REST API workflows with reusable service layers and async data contracts",
+  "Built 40+ shared Storybook components, reducing repeated UI effort by 40%",
+  "Reduced regression defects by 30% with Vitest and React Testing Library coverage",
+  "Modernized legacy modules, reducing frontend technical debt by 20%",
 ];
 
 export const educationSummary =
-  "B.Tech in Computer Science — Dr. APJ Abdul Kalam Technical University (2013-2017)";
+  "B.Tech in Computer Science & Engineering — Dr. A.P.J. Abdul Kalam Technical University (2017-2021), CGPA 7.3/10";
 
 export const heroImpactStats: { value: string; label: string }[] = [
   { value: "4+ Years", label: "Frontend Experience" },
-  { value: "80%", label: "Dashboard UX/Performance Gain" },
-  { value: "60-70%", label: "Frontend Ownership in Current Project" },
+  { value: "35%", label: "Page Performance Improvement" },
+  { value: "40+", label: "Reusable Storybook Components" },
 ];
 
 export const seniorSignals: string[] = [
   "React + TypeScript Architecture",
-  "Frontend Platform Ownership",
-  "Mentorship and Code Reviews",
+  "AG Grid + Data Dashboards",
+  "Core Web Vitals Optimization",
   "Enterprise SaaS and Fintech Delivery",
 ];
 
 export const socialMediaLinks: socialMediaLinksType[] = [
   {
-    link: "https://www.linkedin.com/in/dhirendra-kumar-9032/",
+    link: "https://www.linkedin.com/in/dhirendrakumar95/",
     logo: FaLinkedin,
   },
   {
@@ -163,24 +164,39 @@ export const skills: SkillsType[] = [
 
 export const skillTags: string[] = [
   "Zustand",
+  "Vue.js",
+  "React Hooks",
+  "Custom Hooks",
+  "Micro Frontend",
   "AG-Grid",
   "D3.js",
   "Chart.js",
+  "FullCalendar",
   "React-Google-Charts",
   "React Query",
+  "Context API",
+  "Axios",
+  "Fetch API",
+  "Authentication",
+  "Authorization",
   "Material UI",
+  "Styled-Components",
   "REST APIs",
-  "Node.js (basic)",
   "React Testing Library",
   "Jest",
   "Vitest",
+  "Cypress",
   "Vite",
   "Webpack",
-  "Parcel",
+  "Babel",
+  "ESLint",
+  "Prettier",
+  "Storybook",
   "CI/CD",
+  "JIRA",
+  "Figma",
   "AWS",
   "Azure",
-  "Docker (basic)",
   "Agile/Scrum",
   "SOLID Principles",
 ];

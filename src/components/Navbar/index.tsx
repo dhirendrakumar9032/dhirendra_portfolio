@@ -33,12 +33,28 @@ const Navbar = () => {
         <span>Senior Frontend Portfolio</span>
       </div>
       <div className="left-nav-container">
-        {isLightsEnabled?<img className="mode-btn"  src={moon} alt="sun" onClick={handleModes} />:<img src={sun} alt="moon" onClick={handleModes}/>}
-        {isNavVisible ? (
-          <CloseOutlined className="hamburg" onClick={toggleNav} />
-        ) : (
-          <MenuOutlined className="hamburg" onClick={toggleNav} />
-        )}
+        <button
+          className="nav-control"
+          type="button"
+          onClick={handleModes}
+          aria-label={isLightsEnabled ? "Switch to dark mode" : "Switch to light mode"}
+          title={isLightsEnabled ? "Dark mode" : "Light mode"}
+        >
+          {isLightsEnabled ? (
+            <img className="mode-btn" src={moon} alt="" />
+          ) : (
+            <img className="mode-btn" src={sun} alt="" />
+          )}
+        </button>
+        <button
+          className="nav-control menu-control"
+          type="button"
+          onClick={toggleNav}
+          aria-label={isNavVisible ? "Close navigation" : "Open navigation"}
+          title={isNavVisible ? "Close menu" : "Open menu"}
+        >
+          {isNavVisible ? <CloseOutlined /> : <MenuOutlined />}
+        </button>
       </div>
     </nav>
   );

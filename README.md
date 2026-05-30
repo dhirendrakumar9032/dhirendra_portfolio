@@ -51,10 +51,9 @@ This project is open source and available under the [MIT License](LICENSE).
 Feel free to reach out to me for any inquiries or networking opportunities.
 
 - Email: dhirendra9032@gmail.com
-- LinkedIn: [Dhirendra Kumar](https://www.linkedin.com/in/dhirendra-kumar-9032/)
+- LinkedIn: [Dhirendra Kumar](https://www.linkedin.com/in/dhirendrakumar95/)
 - GitHub: [dhirendrakumar9032](https://www.github.com/dhirendrakumar9032)
 
 ---
 
 Enjoy browsing through my portfolio and getting to know more about my professional journey!
-

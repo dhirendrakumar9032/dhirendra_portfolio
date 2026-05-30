@@ -32,47 +32,142 @@
   }
 }
 
-@keyframes waveAnimation {
+@keyframes orbitSpin {
   0% {
     transform: rotate(0deg);
   }
-  10% {
-    transform: rotate(14deg);
+  100% {
+    transform: rotate(360deg);
   }
-  20% {
-    transform: rotate(-8deg);
-  }
-  30% {
-    transform: rotate(14deg);
-  }
-  40% {
-    transform: rotate(-4deg);
+}
+
+@keyframes driftCircle {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
   }
   50% {
-    transform: rotate(10deg);
+    transform: translate3d(36px, -34px, 0) scale(1.12);
   }
-  60% {
-    transform: rotate(0deg);
+}
+
+@keyframes particleBombard {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0);
+    opacity: 0;
+  }
+  18% {
+    opacity: 0.8;
   }
   100% {
-    transform: rotate(0deg);
+    transform: translate3d(var(--x), var(--y), 0) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseDot {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(23, 184, 121, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(23, 184, 121, 0);
   }
 }
 
 .hero-container {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5%;
+  padding: 110px 5% 70px;
   min-height: 100vh;
   overflow: hidden;
   gap: 30px;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(109, 102, 254, 0.18), transparent 30%),
+    radial-gradient(circle at 88% 16%, rgba(0, 123, 255, 0.16), transparent 28%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(245, 248, 255, 0.72));
 
   .separate-color {
     color: $purple-color;
   }
 
+  .motion-field {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .moving-circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(109, 102, 254, 0.24);
+    background: rgba(255, 255, 255, 0.3);
+    filter: blur(0.2px);
+    animation: driftCircle 8s ease-in-out infinite;
+  }
+
+  .circle-one {
+    width: 150px;
+    height: 150px;
+    top: 14%;
+    left: 5%;
+  }
+
+  .circle-two {
+    width: 88px;
+    height: 88px;
+    right: 9%;
+    top: 24%;
+    animation-delay: -2s;
+  }
+
+  .circle-three {
+    width: 62px;
+    height: 62px;
+    left: 48%;
+    bottom: 12%;
+    animation-delay: -4s;
+  }
+
+  .burst-particle {
+    --x: 120px;
+    --y: -120px;
+    position: absolute;
+    right: 24%;
+    top: 30%;
+    width: 7px;
+    height: 7px;
+    border-radius: 2px;
+    background: linear-gradient(135deg, $purple-color, #00a3ff);
+    opacity: 0;
+    animation: particleBombard 2.8s ease-out infinite;
+  }
+
+  .particle-1 { --x: 128px; --y: -112px; animation-delay: 0.12s; }
+  .particle-2 { --x: 78px; --y: -76px; animation-delay: 0.24s; }
+  .particle-3 { --x: -96px; --y: -92px; animation-delay: 0.36s; }
+  .particle-4 { --x: -128px; --y: -22px; animation-delay: 0.48s; }
+  .particle-5 { --x: 118px; --y: 24px; animation-delay: 0.6s; }
+  .particle-6 { --x: -72px; --y: 82px; animation-delay: 0.72s; }
+  .particle-7 { --x: 38px; --y: 116px; animation-delay: 0.84s; }
+  .particle-8 { --x: -18px; --y: -124px; animation-delay: 0.96s; }
+  .particle-9 { --x: 146px; --y: -26px; animation-delay: 1.08s; }
+  .particle-10 { --x: -142px; --y: 42px; animation-delay: 1.2s; }
+  .particle-11 { --x: 86px; --y: 96px; animation-delay: 1.32s; }
+  .particle-12 { --x: -112px; --y: -66px; animation-delay: 1.44s; }
+  .particle-13 { --x: 24px; --y: -84px; animation-delay: 1.56s; }
+  .particle-14 { --x: -42px; --y: 118px; animation-delay: 1.68s; }
+  .particle-15 { --x: 132px; --y: 72px; animation-delay: 1.8s; }
+  .particle-16 { --x: -132px; --y: 104px; animation-delay: 1.92s; }
+  .particle-17 { --x: 54px; --y: -132px; animation-delay: 2.04s; }
+  .particle-18 { --x: -64px; --y: -118px; animation-delay: 2.16s; }
+
   .hero {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -81,32 +176,35 @@
     animation: slideFromLeft 1s ease-out forwards;
 
     .hero-greeting {
-      font-size: 1.35rem;
+      width: fit-content;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(109, 102, 254, 0.3);
+      background: rgba(255, 255, 255, 0.7);
+      font-size: 0.82rem;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       opacity: 0.9;
-
-      .wave {
-        animation-name: waveAnimation;
-        animation-duration: 2.5s;
-        animation-iteration-count: infinite;
-        transform-origin: 70% 70%;
-        display: inline-block;
-      }
     }
 
     .hero-name {
-      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      margin: 0;
+      color: transparent;
+      background: linear-gradient(135deg, #5b54f5 0%, #0b84ff 52%, #28b8ff 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      font-size: clamp(2.8rem, 6.8vw, 5.5rem);
       font-weight: 800;
-      line-height: 1.08;
-      margin-top: -4px;
+      line-height: 0.98;
     }
 
     .hero-title {
-      font-size: clamp(1.8rem, 3.8vw, 2.8rem);
-      font-weight: 700;
+      max-width: 760px;
+      font-size: clamp(1.65rem, 3.7vw, 3rem);
+      font-weight: 800;
       line-height: 1.15;
+      color: #111827;
     }
 
     .hero-subtitle {
@@ -145,10 +243,11 @@
         flex-direction: column;
         gap: 5px;
         padding: 14px;
-        border-radius: 12px;
+        border-radius: 8px;
         border: 1px solid rgba(0, 0, 0, 0.09);
-        background: rgba(255, 255, 255, 0.65);
+        background: rgba(255, 255, 255, 0.78);
         box-shadow: 0 12px 26px rgba(15, 23, 42, 0.08);
+        backdrop-filter: blur(12px);
       }
 
       .impact-value {
@@ -172,25 +271,34 @@
     }
 
     .social-media-link {
-      display: flex;
-      gap: 5px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(126px, 154px));
+      gap: 10px;
+      max-width: 700px;
 
       .links {
-        width: 50px;
-        height: 50px;
+        width: 100%;
+        height: 40px;
         display: flex;
-        border-radius: 8px;
+        gap: 8px;
+        border-radius: 999px;
         justify-content: center;
         color: white;
         align-items: center;
-        background-image: linear-gradient(to right, $purple-color, #007bff);
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        background: linear-gradient(135deg, rgba(109, 102, 254, 0.94), rgba(0, 123, 255, 0.94));
+        box-shadow: 0 10px 22px rgba(109, 102, 254, 0.2);
         object-fit: contain;
+        text-decoration: none;
+        font-weight: 800;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
 
         svg {
-          width: 18px;
-          height: 18px;
+          width: 16px;
+          height: 16px;
+        }
+
+        span {
+          font-size: 0.84rem;
         }
       }
     }
@@ -198,47 +306,203 @@
     .can-connect-on {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 14px;
 
-      .email {
-        display: flex;
+      .recruiter-actions {
+        display: grid;
+        grid-template-columns: minmax(128px, 154px) minmax(170px, max-content) minmax(230px, max-content);
         align-items: center;
-        gap: 5px;
-        font-size: 18px;
-        color: $purple-color;
+        gap: 10px;
+        max-width: 700px;
       }
 
-      .download-btn {
-        display: flex;
-        gap: 15px;
-        flex-wrap: wrap;
+      .primary-action-buttons {
+        display: contents;
       }
 
-      button {
+      .direct-links {
+        display: contents;
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          min-height: 40px;
+          padding: 8px 12px;
+          border-radius: 999px;
+          color: $purple-color;
+          background: rgba(109, 102, 254, 0.08);
+          border: 1px solid rgba(109, 102, 254, 0.22);
+          font-size: 0.82rem;
+          font-weight: 800;
+          text-decoration: none;
+          white-space: nowrap;
+          box-shadow: 0 12px 26px rgba(15, 23, 42, 0.06);
+          transition: transform 0.2s ease, border-color 0.2s ease,
+            box-shadow 0.2s ease;
+
+          &:hover {
+            transform: translateY(-2px);
+            border-color: rgba(109, 102, 254, 0.42);
+            box-shadow: 0 16px 34px rgba(109, 102, 254, 0.12);
+          }
+
+          svg {
+            flex: 0 0 auto;
+            width: 15px;
+            height: 15px;
+          }
+        }
+      }
+
+      button,
+      .ant-btn {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 8px;
         background-image: linear-gradient(to right, $purple-color, #007bff);
         color: white;
-        padding: 10px 15px;
+        height: 40px;
+        padding: 8px 16px;
         border: none;
-        border-radius: 5px;
-        font-weight: 600;
+        border-radius: 999px;
+        font-weight: 800;
+        font-size: 0.9rem;
         cursor: pointer;
         outline: none;
-        min-width: 132px;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        min-width: 128px;
+        width: 100%;
+        box-shadow: 0 10px 22px rgba(109, 102, 254, 0.22);
         transition: all 0.2s ease-in-out;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 14px 30px rgba(109, 102, 254, 0.28);
+        }
       }
     }
   }
 
   .hero-image-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    min-width: min(44vw, 520px);
     animation: slideFromRight 1s ease-out forwards,
       float 3s ease-in-out infinite;
     transform-origin: center bottom;
     opacity: 0;
+  }
+
+  .visual-shell {
+    position: relative;
+    width: min(520px, 42vw);
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+  }
+
+  .hero-image-card {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 68%;
+    aspect-ratio: 1;
+    padding: 24px;
+    border-radius: 8px;
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(235, 243, 255, 0.75));
+    border: 1px solid rgba(109, 102, 254, 0.28);
+    box-shadow: 0 34px 80px rgba(15, 23, 42, 0.18);
+    backdrop-filter: blur(18px);
+  }
+
+  .orbit {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px dashed rgba(109, 102, 254, 0.38);
+    animation: orbitSpin 16s linear infinite;
+  }
+
+  .orbit-one {
+    width: 86%;
+    height: 86%;
+  }
+
+  .orbit-two {
+    width: 66%;
+    height: 66%;
+    animation-duration: 11s;
+    animation-direction: reverse;
+  }
+
+  .orbit-three {
+    width: 100%;
+    height: 100%;
+    border-color: rgba(0, 123, 255, 0.24);
+    animation-duration: 22s;
+  }
+
+  .orbit-label,
+  .availability-card {
+    position: absolute;
+    z-index: 3;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #111827;
+    background: rgba(255, 255, 255, 0.86);
+    border: 1px solid rgba(109, 102, 254, 0.22);
+    box-shadow: 0 14px 36px rgba(15, 23, 42, 0.12);
+    font-weight: 800;
+    font-size: 0.82rem;
+    backdrop-filter: blur(12px);
+  }
+
+  .orbit-label-1 {
+    top: 12%;
+    left: 4%;
+  }
+
+  .orbit-label-2 {
+    top: 5%;
+    right: 18%;
+  }
+
+  .orbit-label-3 {
+    right: 0;
+    top: 46%;
+  }
+
+  .orbit-label-4 {
+    bottom: 15%;
+    right: 12%;
+  }
+
+  .orbit-label-5 {
+    bottom: 12%;
+    left: 10%;
+  }
+
+  .availability-card {
+    left: 50%;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+
+  .status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #17b879;
+    animation: pulseDot 1.8s ease-in-out infinite;
   }
 
   section:nth-child(2) {
@@ -292,7 +556,12 @@
 
     .hero-image-container {
       width: min(360px, 90vw);
+      min-width: 0;
       height: auto;
+    }
+
+    .visual-shell {
+      width: min(360px, 88vw);
     }
 
     .social-media-link .links {
@@ -300,8 +569,26 @@
       height: 40px;
     }
 
-    .can-connect-on .email {
-      font-size: 1rem;
+    .can-connect-on {
+      .recruiter-actions {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+      }
+
+      .primary-action-buttons {
+        grid-template-columns: 1fr;
+        width: 100%;
+      }
+
+      .direct-links {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .social-media-link {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+      }
     }
   }
 
@@ -328,7 +615,40 @@
 
 .dark-mode {
   .hero-container {
+    background:
+      radial-gradient(circle at 12% 18%, rgba(109, 102, 254, 0.24), transparent 30%),
+      radial-gradient(circle at 88% 16%, rgba(0, 123, 255, 0.22), transparent 28%),
+      linear-gradient(135deg, rgba(26, 34, 56, 1), rgba(8, 13, 30, 0.96));
+
+    .hero-title {
+      color: #f8fafc;
+    }
+
+    .hero-name {
+      background: linear-gradient(135deg, #ffffff 0%, #cfd7ff 28%, #8ea2ff 62%, #49c7ff 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      filter: drop-shadow(0 16px 38px rgba(75, 111, 255, 0.28));
+    }
+
+    .hero-greeting,
+    .orbit-label,
+    .availability-card,
+    .hero-image-card {
+      color: #f8fafc;
+      background: rgba(17, 24, 39, 0.72);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
     .hero {
+      .can-connect-on {
+        .direct-links {
+          a {
+            color: #a5b4fc;
+          }
+        }
+      }
+
       .hero-senior-signals {
         .signal-chip {
           background: rgba(109, 102, 254, 0.2);

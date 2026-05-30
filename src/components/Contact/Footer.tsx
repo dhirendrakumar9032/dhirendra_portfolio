@@ -1,32 +1,38 @@
-import React from "react";
-import { VscCallOutgoing } from "react-icons/vsc";
-import { IoLocationOutline } from "react-icons/io5";
-import { TfiEmail } from "react-icons/tfi";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import "./index.scss";
 import { socialMediaLinks } from "../../utils/data";
 import IconWrapper from "../../utils/IconWrapper";
 
-type Props = {};
-
-const Footer = (props: Props) => {
+const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="footer">
       <div className="footer-content">
-        <div>
-          <p className="address">
-            <IoLocationOutline /> Lucknow, Uttar Pradesh, India | Hyderabad,
-            Telangana
-          </p>
-          <p className="phone">
-            <VscCallOutgoing /> +91 8604390422
-          </p>
-          <p className="email">
-            <TfiEmail /> dhirendra9032@gmail.com
-          </p>
+        <div className="footer-brand">
+          <span className="footer-logo">DK</span>
+          <div>
+            <h3>Dhirendra Kumar</h3>
+            <p>Senior Frontend Developer crafting scalable React products.</p>
+          </div>
         </div>
+
+        <div className="footer-contact-list">
+          <a className="footer-contact-item" href="mailto:dhirendra9032@gmail.com">
+            <Mail />
+            <span>dhirendra9032@gmail.com</span>
+          </a>
+          <a className="footer-contact-item" href="tel:+918604390422">
+            <Phone />
+            <span>+91 8604390422</span>
+          </a>
+          <span className="footer-contact-item">
+            <MapPin />
+            <span>Lucknow, India</span>
+          </span>
+        </div>
+
         <div className="social-media-link">
           {socialMediaLinks.map(({ link, logo }, index) => (
             <motion.a
@@ -46,7 +52,8 @@ const Footer = (props: Props) => {
         </div>
       </div>
       <div className="footer-rights">
-        <p>© {currentYear} by Dhirendra Kumar. All rights reserved.</p>
+        <p>© {currentYear} Dhirendra Kumar. All rights reserved.</p>
+        <span>Built with React, TypeScript, and focused frontend craft.</span>
       </div>
     </footer>
   );

@@ -7,9 +7,14 @@ import IconWrapper from "../../utils/IconWrapper";
 import heroLogo from "../../resources/icons/front-icon.svg";
 import resume from '../../resources/dhirendra_kumar_resume.pdf'
 import "./index.scss";
-import { Link } from "react-scroll";
 import { IoMdDownload } from "react-icons/io";
 
+const orbitStats = ["React", "TypeScript", "AG-Grid", "D3", "SaaS"];
+const particleBursts = Array.from({ length: 18 }, (_, index) => index);
+const prioritySocialLinks = socialMediaLinks.slice(0, 2).map((item, index) => ({
+  ...item,
+  label: index === 0 ? "LinkedIn" : "GitHub",
+}));
 
 const Home = () => {
   const handleDownload = () => {
@@ -22,18 +27,26 @@ const Home = () => {
 
   return (
     <div className="hero-container" id="home">
+      <div className="motion-field" aria-hidden="true">
+        <span className="moving-circle circle-one"></span>
+        <span className="moving-circle circle-two"></span>
+        <span className="moving-circle circle-three"></span>
+        {particleBursts.map((item) => (
+          <span className={`burst-particle particle-${item + 1}`} key={item}></span>
+        ))}
+      </div>
       <section className="hero">
         <div className="hero-greeting">
-          <span className="wave">👋</span> Hello, I am
+          Senior Frontend Engineer / React Architecture
         </div>
-        <div className="hero-name separate-color">Dhirendra Kumar</div>
+        <h1 className="hero-name">Dhirendra Kumar</h1>
         <div className="hero-title">
-          Senior <span className="separate-color">Frontend Developer</span>
+          I build fast, scalable product interfaces that make complex systems feel simple.
         </div>
         <div className="hero-subtitle">
-          I build scalable React and TypeScript products for fintech and
-          enterprise SaaS, with strong ownership in architecture, reusable UI
-          systems, performance optimization, and cross-functional delivery.
+          Frontend specialist with 4+ years across fintech and enterprise SaaS,
+          known for React/TypeScript architecture, data-heavy dashboards,
+          reusable UI systems, performance work, and strong end-to-end ownership.
         </div>
         <div className="hero-senior-signals">
           {seniorSignals.map((signal) => (
@@ -50,45 +63,60 @@ const Home = () => {
             </div>
           ))}
         </div>
-        <div className="social-media-link">
-          {socialMediaLinks.map(({ link, logo }, index) => (
-            <motion.a
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={index}
-              className="links"
-              initial={{ y: 5, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              whileHover={{ y: -5, opacity: 0.8 }}
-              transition={{ duration: 0.3 }}
-            >
-              <IconWrapper icon={logo} />
-            </motion.a>
-          ))}
-        </div>
         <div className="can-connect-on">
-          <div className="email">
-            <TfiEmail /> dhirendra9032@gmail.com
-          </div>
-          <div className="email">
-            <VscCallOutgoing />
-            +91 8604390422
-          </div>
-          <div className="download-btn">
-            <Link to="contact" smooth={true} duration={500}>
-              <Button type="primary">
-                Let's Talk
+          <div className="recruiter-actions">
+            <div className="primary-action-buttons">
+              <Button type="primary" onClick={handleDownload}>
+                <IoMdDownload style={{ height: "20px", width: "20px" }}/> Resume
               </Button>
-            </Link>
-            <Button type="primary" onClick={handleDownload}>
-              <IoMdDownload style={{ height: "20px", width: "20px" }}/> Resume
-            </Button>
+            </div>
+            <div className="direct-links">
+              <a className="visible-phone" href="tel:+918604390422">
+                <VscCallOutgoing /> +91 8604390422
+              </a>
+              <a href="mailto:dhirendra9032@gmail.com">
+                <TfiEmail /> dhirendra9032@gmail.com
+              </a>
+            </div>
+          </div>
+          <div className="social-media-link">
+            {prioritySocialLinks.map(({ link, logo, label }, index) => (
+              <motion.a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={index}
+                className="links"
+                initial={{ y: 5, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                whileHover={{ y: -5, opacity: 0.8 }}
+                transition={{ duration: 0.3 }}
+              >
+                <IconWrapper icon={logo} />
+                <span>{label}</span>
+              </motion.a>
+            ))}
           </div>
         </div>
       </section>
       <section className="hero-image-container">
-        <Image src={heroLogo} preview={false} />
+        <div className="visual-shell">
+          <div className="orbit orbit-one"></div>
+          <div className="orbit orbit-two"></div>
+          <div className="orbit orbit-three"></div>
+          <div className="hero-image-card">
+            <Image src={heroLogo} preview={false} />
+          </div>
+          {orbitStats.map((item, index) => (
+            <span className={`orbit-label orbit-label-${index + 1}`} key={item}>
+              {item}
+            </span>
+          ))}
+          <div className="availability-card">
+            <span className="status-dot"></span>
+            Available for Senior Frontend roles
+          </div>
+        </div>
       </section>
     </div>
   );
